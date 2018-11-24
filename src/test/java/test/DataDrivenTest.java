@@ -2,6 +2,7 @@ package test;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.BufferedReader;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -16,6 +17,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import calculatorPOM.MainPage;
+import ultilities.ConfigFileReader;
 import ultilities.ExcelUtils;
 import ultilities.ResultLog;
 
@@ -44,16 +46,17 @@ public class DataDrivenTest {
 	public void classSetUp() throws Exception {
 		// code that will be invoked when this class is instantiated
 		try {
+			ConfigFileReader configFileReader= new ConfigFileReader();
 			DesiredCapabilities capabilities = new DesiredCapabilities();
-		    capabilities.setCapability("appium-version", "1.9");
-		    capabilities.setCapability("platformName", "Android");
-		    capabilities.setCapability("platformVersion", "8.1");
-		    capabilities.setCapability("deviceName", "Nexus 5X");
-		    capabilities.setCapability("appPackage", "com.android.calculator2");
-		    capabilities.setCapability("appActivity", "com.android.calculator2.Calculator");
+		    capabilities.setCapability("appium-version", configFileReader.getConfigs("appium-version"));
+		    capabilities.setCapability("platformName", configFileReader.getConfigs("platformName"));
+		    capabilities.setCapability("platformVersion", configFileReader.getConfigs("platformVersion"));
+		    capabilities.setCapability("deviceName", configFileReader.getConfigs("deviceName"));
+		    capabilities.setCapability("appPackage", configFileReader.getConfigs("appPackage"));
+		    capabilities.setCapability("appActivity", configFileReader.getConfigs("appActivity"));
 
 		    try {
-		        driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+		        driver = new AndroidDriver(new URL(configFileReader.getConfigs("url")), capabilities);
 		    } catch (MalformedURLException e) {
 		        e.printStackTrace();
 		    }

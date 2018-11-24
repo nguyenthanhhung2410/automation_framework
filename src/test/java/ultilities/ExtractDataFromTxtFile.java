@@ -14,22 +14,9 @@ public class ExtractDataFromTxtFile {
 	public String configFile="";
 	public static String testDataFile="";
 	
-	
-	/**
-	 * @author Hanh Pham
-	 * @Reviewer Nhat Phan
-	 * @purpose This mehtod will be used to get information of a user following input id
-	 * @date
-	 * @History:
-	 * Modified by			Date			Note
-	 * Hanh Pham			2014-May-23		Support userA get specified information of userB or get information from common information
-	 * @param userID
-	 * @return
-	 * @throws IOException
-	 */
-	public Hashtable readTxtFileByID(String userID) throws IOException{
+	public Hashtable<String, String> readTxtFileByID(String userID) throws IOException{
         BufferedReader buffReader = null;
-        Hashtable hTable = new Hashtable();
+        Hashtable<String, String> hTable = new Hashtable<String, String>();
         String[] strTemp;
         String line, s;         
         loadTestDataPropertiesFile(configPath+"testData.properties");
@@ -73,9 +60,9 @@ public class ExtractDataFromTxtFile {
         return hTable;
 	}
 	
-	public Hashtable readTxtFileByID(String userID, String hostID) throws IOException{
+	public Hashtable<String, String> readTxtFileByID(String userID, String hostID) throws IOException{
         BufferedReader buffReader = null;
-        Hashtable hTable = new Hashtable();
+        Hashtable<String, String> hTable = new Hashtable<String, String>();
         String[] strTemp;
         String line, s;         
         try{        	
