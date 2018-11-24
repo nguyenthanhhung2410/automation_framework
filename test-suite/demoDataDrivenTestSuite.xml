@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Demo Data-Driven Suite">
+	<listeners>
+		<listener class-name="ultilities.ReportListener"/>
+	</listeners>
+  <test name="Demo Data-Driven Test">
+    <classes>
+      <class name="test.DataDrivenTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

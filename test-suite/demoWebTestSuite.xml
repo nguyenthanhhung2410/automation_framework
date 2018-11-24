@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Demo Web Suite">
+	<listeners>
+		<listener class-name="ultilities.ReportListener"/>
+	</listeners>
+  <parameter name="number"  value="6"/>
+  <test name="Demo Web Test">
+    <classes>
+      <class name="test.WebTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

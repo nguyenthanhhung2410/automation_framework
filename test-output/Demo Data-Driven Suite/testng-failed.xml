@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Demo Data-Driven Suite]">
+  <listeners>
+    <listener class-name="ultilities.ReportListener"/>
+  </listeners>
+  <test thread-count="5" name="Demo Data-Driven Test(failed)">
+    <classes>
+      <class name="test.DataDrivenTest">
+        <methods>
+          <include name="testPlus" invocation-numbers="0 1 2"/>
+          <include name="classSetUp"/>
+          <include name="cleanUp"/>
+        </methods>
+      </class> <!-- test.DataDrivenTest -->
+    </classes>
+  </test> <!-- Demo Data-Driven Test(failed) -->
+</suite> <!-- Failed suite [Demo Data-Driven Suite] -->
